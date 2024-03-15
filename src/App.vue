@@ -38,6 +38,9 @@ const origin = ref({})
 const data = reactive(someData);
 
 const handleAdd = () => {
+    if (data.some((item) => item.isEdit)) {
+        return
+    }
     origin.value = {}
     data.push({ isEdit: true })
 }
